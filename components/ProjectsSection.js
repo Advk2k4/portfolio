@@ -119,7 +119,7 @@ export default function ProjectsSection() {
       id: 11,
       title: "EchoSafe – Embedded Consumer Device",
       description: "Architected an end-to-end embedded consumer device for hearing-impaired users: schematic capture, PCB layout, BOM development, vendor coordination, board bring-up, and stress testing. Implemented real-time Embedded C firmware for sensor processing on a custom PCB. Trained and deployed an on-device sound classification ML model (5 classes, 91% accuracy) for real-time assistive alerting.",
-      image: "/logo.png",
+      image: "/echosafe_logo.png",
       tags: ["KiCad", "Embedded C", "Python", "ML", "PCB Design", "Sound Classification"],
       category: "embedded",
       githubUrl: null,
