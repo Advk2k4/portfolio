@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@tsparticles/engine": "^3.8.1",
+    "@vercel/speed-insights": "^2.0.0",
     "gsap": "^3.13.0",
     "next": "latest",
     "ogl": "^1.0.11",

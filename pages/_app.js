@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import { useEffect } from 'react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
@@ -20,5 +21,10 @@ export default function App({ Component, pageProps }) {
     return () => observer.disconnect()
   }, [])
 
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Component {...pageProps} />
+      <SpeedInsights />
+    </>
+  )
 }
