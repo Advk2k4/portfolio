@@ -2,25 +2,46 @@ import React from 'react';
 
 const experiences = [
   {
+    title: 'Embedded Systems & Controls Engineer',
+    company: 'UMass Mechatronics Team – ASME Student Design Competition',
+    period: 'Jan 2025 – Present',
+    bullets: [
+      'Developed C/C++ firmware for real-time motor control and sensor fusion',
+      'Diagnosed hardware-software faults during board bring-up and field testing alongside mechanical and electrical teams',
+      'Integrated sensors across I2C, SPI, and UART interfaces',
+      'Validated timing and signal integrity using oscilloscopes and logic analyzers',
+    ],
+  },
+  {
     title: 'Software Engineering Intern',
-    company: 'WealthTechAI Robo Advisory',
-    period: 'Jun 2025 – Present',
-    description:
-      'Migrated microservices from AWS to Frappe Cloud, rewrote APIs, and led end-to-end backend integration for a large-scale fintech platform.',
+    company: 'WealthTechAI',
+    period: 'Jun 2025 – Aug 2025',
+    bullets: [
+      'Performed system-level validation on Linux-based platforms',
+      'Investigated failures through structured root-cause analysis tracing issues across process execution and system state',
+      'Built Python-based automation for regression testing and functional verification',
+      'Documented system behavior and edge cases to support reliable integration',
+    ],
+  },
+  {
+    title: 'Undergraduate Course Assistant',
+    company: 'UMass ECE Department',
+    period: 'Jan 2024 – Dec 2024',
+    bullets: [
+      'Mentored 80+ students in digital logic, Verilog RTL design, and FPGA simulation',
+      'Delivered technical training and guided structured debugging and hardware verification techniques across a diverse student base',
+      'Developed clear technical explanations for complex hardware concepts',
+    ],
   },
   {
     title: 'Research Assistant',
-    company: 'UMass ECE Department',
-    period: 'Dec 2023 – Jun 2024',
-    description:
-      'Built a proximity-based smart lock system using PCB design, ESP32 firmware, and mobile app control for secure access management.',
-  },
-  {
-    title: 'Hackathons & Freelance',
-    company: 'Various',
-    period: 'Ongoing',
-    description:
-      'Built real-time ASL recognition tools, carbon footprint scanners, and AI-powered accessibility tech for visually impaired users using Streamlit, TensorFlow, and OpenCV.',
+    company: 'Elaine Marieb Center for Nursing and Engineering Innovation',
+    period: 'Dec 2023 – Aug 2024',
+    bullets: [
+      'Assembled and debugged PCB-based embedded systems for biomedical sensing devices',
+      'Wrote C and Python test utilities to validate system behavior and data integrity',
+      'Automated validation workflows and established repeatable testing procedures for cross-team traceability',
+    ],
   },
 ];
 
@@ -54,7 +75,14 @@ export default function ExperienceSection() {
                     {exp.title}
                   </h3>
                   <p className="text-sm text-gray-500 mb-4">{exp.company}</p>
-                  <p className="text-gray-300 leading-relaxed">{exp.description}</p>
+                  <ul className="space-y-2">
+                    {exp.bullets.map((bullet, j) => (
+                      <li key={j} className="flex gap-3 text-gray-300 text-sm leading-relaxed">
+                        <span className="text-gray-600 mt-[5px] shrink-0">–</span>
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}

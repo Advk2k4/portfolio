@@ -14,7 +14,7 @@ export default function ProjectsSection() {
       category: "ai",
       githubUrl: "https://github.com/Advk2k4/BiasDetectionModel",
       liveUrl: null,
-      featured: true
+      featured: false
     },
     {
       id: 2,
@@ -36,7 +36,7 @@ export default function ProjectsSection() {
       category: "ai",
       githubUrl: "https://github.com/Advk2k4/sentiment-analysis",
       liveUrl: "https://www.youtube.com/watch?v=mjO0FVW-aDs&ab_channel=AadvikMishra",
-      featured: true
+      featured: false
     },
     {
       id: 4,
@@ -58,7 +58,7 @@ export default function ProjectsSection() {
       category: "embedded",
       githubUrl: "https://github.com/epeter11/ECE332",
       liveUrl: null,
-      featured: true
+      featured: false
     },
     {
       id: 6,
@@ -80,7 +80,7 @@ export default function ProjectsSection() {
       category: "fullstack",
       githubUrl: "https://github.com/sheldor1510/safestride",
       liveUrl: "https://www.youtube.com/watch?v=sezqMUveo20&list=WL&index=8&ab_channel=SafeStride",
-      featured: false
+      featured: true
     },
     {
       id: 8,
@@ -110,10 +110,21 @@ export default function ProjectsSection() {
       description: "Still building...",
       image: "/logo.png",
       tags: ["JavaScript", "React", "Node.js", "Express", "MongoDB", "Full Stack"],
-      category: "Full Stack",
+      category: "fullstack",
       githubUrl: "https://github.com/Advk2k4/medway",
       liveUrl: null,
-      featured: false
+      featured: true
+    },
+    {
+      id: 11,
+      title: "EchoSafe – Embedded Consumer Device",
+      description: "Architected an end-to-end embedded consumer device for hearing-impaired users: schematic capture, PCB layout, BOM development, vendor coordination, board bring-up, and stress testing. Implemented real-time Embedded C firmware for sensor processing on a custom PCB. Trained and deployed an on-device sound classification ML model (5 classes, 91% accuracy) for real-time assistive alerting.",
+      image: "/logo.png",
+      tags: ["KiCad", "Embedded C", "Python", "ML", "PCB Design", "Sound Classification"],
+      category: "embedded",
+      githubUrl: null,
+      liveUrl: null,
+      featured: true
     }
   ]
 
