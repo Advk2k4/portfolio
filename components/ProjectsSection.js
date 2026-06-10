@@ -122,7 +122,7 @@ export default function ProjectsSection() {
       image: "/echosafe_logo.png",
       tags: ["KiCad", "Embedded C", "Python", "ML", "PCB Design", "Sound Classification"],
       category: "embedded",
-      githubUrl: null,
+      githubUrl: "https://github.com/Advk2k4/echosafe",
       liveUrl: null,
       featured: true
     }
