@@ -14,27 +14,37 @@ No test runner or linter is configured.
 
 ## Architecture
 
-This is a **Next.js Pages Router** single-page portfolio site written in plain JavaScript (no TypeScript). All content is hardcoded directly in component files — there is no CMS, database, or data layer.
+**Next.js 15 Pages Router**, plain JavaScript, Tailwind CSS 3. One page (`pages/index.js`) renders every section in order with `id` anchors: `#home`, `#echosafe`, `#projects`, `#experience`, `#skills`, `#about`, `#contact`. Project cards have their own anchors (`#p-<id>`), used by the skills explorer.
 
-**Page structure**: `pages/index.js` is the only page. It renders all sections sequentially with `id` anchors (`#home`, `#about`, `#experience`, `#projects`, `#skills`, `#contact`). The `Navigation` component does smooth-scroll between these anchors using `window.scrollTo`.
+No runtime dependencies besides `next`, `react`, `react-dom` and `@vercel/speed-insights`. All motion is CSS or plain canvas/SVG. Keep it that way unless Aadvik approves a new package.
 
-**Styling**: Tailwind CSS with a strict all-black background (`bg-black`, `#000` enforced in `globals.css`) and white text. The custom `font-bodoni` Tailwind class maps to Bodoni Moda serif (defined in `tailwind.config.js`).
+**Design system** (`tailwind.config.js`, `styles/globals.css`):
+- Colors: `paper` (cream base), `ink`, `muted`, `night` (dark band), `signal` (orange), `cobalt`, `lime`. No violet.
+- Fonts via `next/font/google` in `pages/_app.js`: Bricolage Grotesque (`font-display`), Geist (`font-sans`), Geist Mono (`font-mono`).
+- Shared classes: `.wrap` (page container), `.kicker`, `.btn` + `.btn-solid` / `.btn-outline`, `.chip`, `.link-draw`, `.enter` (hero entrance, stagger with `--d`).
+- Every animation must respect `prefers-reduced-motion` (handled globally in `globals.css`).
 
-**Components in use by `pages/index.js`**:
-- `Navigation` — fixed navbar with scroll-aware active section detection and mobile hamburger menu
-- `ExperienceSection` — static left-border timeline, content hardcoded directly in JSX
-- `ProjectsSection` — filterable grid of project cards; all project data (title, description, tags, image, links, category) is a hardcoded array at the top of the file
-- `SkillsSection` — categorized skill badges; skills are a hardcoded object in the component
+**Components** (`components/`):
+- `Navigation`: fixed pill nav, IntersectionObserver active state, full-screen mobile menu.
+- `Hero` + `SignalCanvas`: name, intro, CTAs, stats strip; canvas of circuit traces with pulses that react to the pointer (pausable, pauses off-screen).
+- `EchoSafeSection` + `EchoSafeDemo`: the featured capstone. The demo is an interactive illustration (pick a sound, click around the head, mics light up in arrival order, nearest motor buzzes; optional Web Audio synth).
+- `ProjectsSection` + `ProjectVisuals`: filterable card grid. `ProjectVisuals` draws visuals for projects without a photo (`spectrum`, `mesh`, `eeg`).
+- `ExperienceSection`, `SkillsSection` (skill explorer: click a skill to see where it was used), `AboutSection`, `ContactSection` (includes the footer).
 
-**Components that exist but are NOT currently used** in `pages/index.js`:
-- `HeroSection.js` — an alternative hero with a `TextTrail` animation (imports a `TextTrail` component that doesn't exist in the repo)
-- `AnimatedBackground.js` — Vanta.js BIRDS animation using Three.js; loads via dynamic import to avoid SSR issues
-- `ModernButton.js` — reusable `<a>`/`<button>` with shimmer/particle hover effects; accepts `variant` (`primary`|`secondary`|`outline`) and `size` (`sm`|`md`|`lg`) props
+`next.config.js` exposes `NEXT_PUBLIC_ON_VERCEL` so Speed Insights only loads on Vercel builds.
 
 ## Content Updates
 
-- **Projects**: Edit the `projects` array in `components/ProjectsSection.js`. Each entry has `id`, `title`, `description`, `image` (path relative to `/public/`), `tags` (array), `category` (`ai`|`embedded`|`fullstack`), `githubUrl`, `liveUrl` (nullable), and `featured` (boolean).
-- **Experience**: Edit JSX directly in `components/ExperienceSection.js`.
-- **Skills**: Edit the `categories` object in `components/SkillsSection.js`.
-- **Resume**: Replace `public/AadvikMishra_Resume.pdf`.
-- **Profile image**: Replace `public/Aadvik.jpeg`; it is referenced in the inlined hero in `pages/index.js`.
+- **Projects**: edit the `projects` array in `lib/projects.js`. Fields: `id`, `title`, `meta`, `category` (`hardware`|`vlsi`|`ml`|`software`), `visual` (image path in `/public` or `spectrum`|`mesh`|`eeg`), `blurb`, `tags`, `links`, optional `award`, `contain`.
+- **Skills**: edit `skillGroups` in `lib/skills.js`. `used` lists project ids or `role:*` keys as evidence.
+- **EchoSafe**: `FACTS`, `PIPELINE`, `TIMELINE` at the top of `components/EchoSafeSection.js`.
+- **Experience**: `experiences` array in `components/ExperienceSection.js`.
+- **Resume**: replace `public/AadvikMishra_Resume.pdf`. **Profile image**: `public/Aadvik.jpeg`.
+
+## Content rules
+
+- Every claim must be real. Never invent projects, metrics, employers or skills.
+- Aadvik graduated in May 2026; never call him a student.
+- Do not claim Docker, Linux, TCL, Perl, Verilog or Assembly.
+- EchoSafe is a group senior design capstone (Aadvik: team lead, ML pipeline, all software-hardware integration). It is ear-worn, not a wrist device.
+- No em dashes in site text.

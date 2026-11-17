@@ -8,18 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "@tsparticles/engine": "^3.8.1",
     "@vercel/speed-insights": "^2.0.0",
-    "gsap": "^3.13.0",
     "next": "15.5.8",
-    "ogl": "^1.0.11",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-tsparticles": "^2.12.2",
-    "three": "^0.125.2",
-    "tsparticles": "^2.12.0",
-    "tsparticles-engine": "^2.12.0",
-    "vanta": "^0.5.21"
+    "react": "19.1.10",
+    "react-dom": "19.1.10"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
