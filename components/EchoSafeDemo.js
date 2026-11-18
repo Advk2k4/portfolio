@@ -311,62 +311,76 @@ export default function EchoSafeDemo() {
         </svg>
       </div>
 
-      <div className="mt-2 grid grid-cols-4 gap-1.5 sm:grid-cols-8" aria-label="Or send the sound from a direction">
-        {DIRECTIONS.map((d) => (
-          <button
-            key={d.deg}
-            type="button"
-            onClick={() => fire(d.deg)}
-            className="min-h-[44px] rounded-xl border border-white/15 px-1 text-[11px] leading-tight text-white/80 transition-colors hover:border-lime hover:text-white"
-          >
-            {d.label}
-          </button>
-        ))}
+      <div className="mt-3" role="group" aria-label="Or send the sound from a direction">
+        <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.16em] text-white/45">Or pick a direction</p>
+        <div className="grid grid-cols-4 gap-2">
+          {DIRECTIONS.map((d) => {
+            const on = shot && Math.round(shot.deg) === d.deg
+            return (
+              <button
+                key={d.deg}
+                type="button"
+                onClick={() => fire(d.deg)}
+                aria-pressed={Boolean(on)}
+                className={`min-h-[44px] whitespace-nowrap rounded-xl border px-2 text-xs transition-colors ${
+                  on ? 'border-lime bg-lime/10 text-white' : 'border-white/15 text-white/75 hover:border-white/50 hover:text-white'
+                }`}
+              >
+                {d.label}
+              </button>
+            )
+          })}
+        </div>
       </div>
 
-      <div className="mt-4 grid gap-3 rounded-2xl bg-black/40 p-4 font-mono text-[13px] tabular-nums sm:grid-cols-[1fr_auto]" aria-live="polite">
-        <div className="space-y-1.5">
-          {!shot && <p className="text-white/70">Click anywhere around the head to send a sound from there.</p>}
-          {shot && (
-            <>
-              <p>
-                <span className="text-white/50">heard by </span>
-                {shot.order.map((o, i) => (
-                  <span key={o.id}>
-                    {i > 0 && <span className="text-white/40"> → </span>}
+      <dl className="mt-5 divide-y divide-white/10 rounded-2xl bg-black/40 px-4 font-mono text-[13px] tabular-nums" aria-live="polite">
+        <div className="grid gap-1.5 py-3 sm:grid-cols-[4.5rem_1fr] sm:items-center sm:gap-3">
+          <dt className="text-white/45">Heard</dt>
+          <dd className="flex flex-wrap items-center gap-1.5">
+            {!shot && <span className="font-sans text-sm text-white/60">Click around the head to send a sound.</span>}
+            {shot &&
+              shot.order.map((o, i) => (
+                <span key={o.id} className="inline-flex items-center gap-1.5">
+                  {i > 0 && <span aria-hidden="true" className="text-white/30">→</span>}
+                  <span className={`rounded-md px-1.5 py-0.5 ${i === 0 ? 'bg-lime text-ink' : 'bg-white/10 text-white/85'}`}>
                     {o.id}
                     {i > 0 && <span className="text-white/50"> +{o.realMs.toFixed(2)}ms</span>}
                   </span>
-                ))}
-              </p>
-              <p>
-                <span className="text-white/50">classified </span>
-                {phase === 'alert' ? shot.sound.label.toLowerCase() : 'listening…'}
-              </p>
-              <p>
-                <span className="text-white/50">alert </span>
-                {phase !== 'alert'
-                  ? '…'
-                  : shot.sound.alert
-                    ? `buzz ${nearestNames.join(' + ')} motor`
-                    : 'none, below the alert threshold'}
-              </p>
-            </>
-          )}
+                </span>
+              ))}
+          </dd>
         </div>
-        <ul className="flex flex-wrap gap-1.5 sm:max-w-[11rem] sm:justify-end" aria-label="Classes the model knows">
-          {CLASSES.map((c) => (
-            <li
-              key={c.id}
-              className={`rounded-full px-2.5 py-1 text-[11px] transition-colors ${
-                detected === c.id ? 'bg-lime text-ink' : 'bg-white/10 text-white/60'
-              }`}
-            >
-              {c.label}
-            </li>
-          ))}
-        </ul>
-      </div>
+        <div className="grid gap-1.5 py-3 sm:grid-cols-[4.5rem_1fr] sm:items-center sm:gap-3">
+          <dt className="text-white/45">Sound</dt>
+          <dd>
+            <ul className="flex flex-wrap gap-1.5" aria-label="Classes the model knows">
+              {CLASSES.map((c) => (
+                <li
+                  key={c.id}
+                  aria-current={detected === c.id ? 'true' : undefined}
+                  className={`rounded-full px-2.5 py-0.5 text-[12px] transition-colors ${
+                    detected === c.id ? 'bg-lime text-ink' : 'bg-white/[0.06] text-white/50'
+                  }`}
+                >
+                  {c.label}
+                </li>
+              ))}
+            </ul>
+          </dd>
+        </div>
+        <div className="grid gap-1.5 py-3 sm:grid-cols-[4.5rem_1fr] sm:items-center sm:gap-3">
+          <dt className="text-white/45">Alert</dt>
+          <dd className={phase === 'alert' && shot?.sound.alert ? 'text-signal' : 'text-white/80'}>
+            {!shot
+              ? '-'
+              : phase !== 'alert'
+                ? 'listening…'
+                : shot.sound.alert
+                  ? `Buzz ${nearestNames.join(' + ')} motor`
+                  : 'None, below the alert threshold'}
+          </dd>
+        </div>
+      </dl>
       <p className="mt-3 text-xs text-white/50">An illustration of how the device works, not live data from it.</p>
     </div>
   )
