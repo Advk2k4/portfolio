@@ -5,3 +5,10 @@ node_modules/
 .env
 .env.local
 .env*.local
+
+# Local agent tooling (skills, Serena)
+.agents/
+.claude/
+.serena/
+skills-lock.json
+screenshots/

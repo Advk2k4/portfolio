@@ -2,65 +2,292 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  background-color: #000;
+:root {
+  --paper: #f5f1e8;
+  --ink: #141414;
+  --signal: #ff5b23;
+  --cobalt: #1f45f5;
+  --lime: #d5f542;
+  --night: #0f1013;
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
   margin: 0;
-  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-#__next {
-  background-color: #000;
-  min-height: 100vh;
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
 }
 
-/* Film grain texture overlay */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 200px 200px;
-  opacity: 0.04;
-  pointer-events: none;
-  z-index: 9998;
+a,
+button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(31, 69, 245, 0.15);
 }
 
-/* Scroll-triggered fade-in animations */
-@media (prefers-reduced-motion: no-preference) {
-  .animate-on-scroll {
+::selection {
+  background: var(--lime);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--cobalt);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.on-dark :focus-visible,
+.on-dark:focus-visible {
+  outline-color: var(--lime);
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-wrap px-4 sm:px-8;
+  }
+
+  .kicker {
+    @apply font-mono text-xs uppercase tracking-[0.18em];
+  }
+
+  /* One button family: solid + outline, both step on hover and press on click */
+  .btn {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-6 text-[15px] font-semibold;
+    transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease,
+      box-shadow 0.18s ease;
+    touch-action: manipulation;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  .btn:active {
+    transform: translateY(1px) scale(0.98);
+  }
+  .btn-solid {
+    @apply bg-ink text-paper;
+    box-shadow: 4px 4px 0 var(--signal);
+  }
+  .btn-solid:hover {
+    box-shadow: 6px 6px 0 var(--signal);
+  }
+  .btn-outline {
+    @apply border-2 border-ink bg-transparent text-ink;
+  }
+  .btn-outline:hover {
+    @apply bg-ink text-paper;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border px-3 py-1 font-mono text-[12px] leading-5;
+  }
+
+  .link-draw {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 2px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.25s ease;
+  }
+  .link-draw:hover,
+  .link-draw:focus-visible {
+    background-size: 100% 2px;
+  }
+}
+
+/* Hero entrance: plays once on load */
+@keyframes enter-up {
+  from {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.75s ease, transform 0.75s ease;
+    transform: translateY(18px);
   }
-
-  .animate-on-scroll.is-visible {
+  to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
-
-/* Typewriter cursor blink */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+.enter {
+  animation: enter-up 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--d, 0ms);
 }
 
-.cursor-blink {
-  animation: blink 0.75s step-end infinite;
-  margin-left: 1px;
+/* EchoSafe demo */
+@keyframes ripple {
+  from {
+    transform: scale(0.03);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+.ripple {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ripple 1.6s cubic-bezier(0.1, 0.6, 0.3, 1) both;
+}
+@keyframes mic-hit {
+  from {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.mic-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes buzz {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-2px, 1px);
+  }
+  40% {
+    transform: translate(2px, -1px);
+  }
+  60% {
+    transform: translate(-2px, -1px);
+  }
+  80% {
+    transform: translate(2px, 1px);
+  }
+}
+.buzz {
+  animation: buzz 0.12s linear 8;
 }
 
-/* Scroll indicator drop animation */
-@keyframes scroll-drop {
-  0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
-  50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
-  51% { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
-  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0.3; }
+/* NoC packets hop router to router while the card is hovered */
+@keyframes packet-a {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(150px, 0); }
+  50% { transform: translate(300px, 0); }
+  75% { transform: translate(300px, 60px); }
+  100% { transform: translate(300px, 120px); }
+}
+@keyframes packet-b {
+  0% { transform: translate(0, 0); }
+  33% { transform: translate(-150px, 0); }
+  66% { transform: translate(-150px, -60px); }
+  100% { transform: translate(-150px, -120px); }
+}
+.packet { animation: 3s linear infinite paused; }
+.packet-a { animation-name: packet-a; }
+.packet-b { animation-name: packet-b; animation-duration: 2.6s; }
+.group:hover .packet { animation-play-state: running; }
+
+/* Custom cursor: one circle replaces the system cursor (fine pointers only) */
+.custom-cursor,
+.custom-cursor * {
+  cursor: none !important;
+}
+.cursor-dot {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.cursor-dot[data-visible='true'] {
+  opacity: 1;
+}
+.cursor-dot span {
+  position: absolute;
+  left: -9px;
+  top: -9px;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  border: 2px solid var(--ink);
+  background: rgba(20, 20, 20, 0.08);
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1), background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+.cursor-dot[data-dark='true'] span {
+  border-color: var(--paper);
+  background: rgba(245, 241, 232, 0.12);
+}
+.cursor-dot[data-hover='true'] span {
+  transform: scale(1.9);
+  background: rgba(213, 245, 66, 0.55);
+}
+.cursor-dot[data-down='true'] span {
+  transform: scale(0.75);
+}
+.cursor-dot[data-hover='true'][data-down='true'] span {
+  transform: scale(1.5);
 }
 
-.scroll-indicator {
-  animation: scroll-drop 2s ease-in-out infinite;
+/* Project visuals */
+@keyframes walk-a {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(150px, 0); }
+  100% { transform: translate(150px, 70px); }
+}
+@keyframes walk-b {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(140px, 0); }
+  100% { transform: translate(140px, 70px); }
+}
+.walker { animation: 3s ease-in-out infinite alternate paused; }
+.walker-a { animation-name: walk-a; }
+.walker-b { animation-name: walk-b; animation-delay: -0.4s; }
+.group:hover .walker { animation-play-state: running; }
+
+@keyframes ecg-draw {
+  from { stroke-dashoffset: 900; }
+  to { stroke-dashoffset: 0; }
+}
+.ecg-line { stroke-dasharray: 900; stroke-dashoffset: 0; }
+.group:hover .ecg-line { animation: ecg-draw 1.6s linear infinite; }
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  30% { transform: scale(1.25); }
+}
+.group:hover .beat { animation: beat 0.8s ease-in-out infinite; }
+
+/* Sticker ring spins only while hovered */
+.ring-spin {
+  transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.sticker:hover .ring-spin {
+  transform: rotate(120deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
