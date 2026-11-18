@@ -13,7 +13,7 @@ function rand(a, b) {
 
 function buildTraces(w, h) {
   const traces = []
-  const count = Math.min(70, Math.round((w * h) / 16000))
+  const count = Math.min(70, Math.round((w * h) / 21000))
   const dirs = [
     [1, 0],
     [1, 1],
@@ -94,7 +94,7 @@ export default function SignalCanvas({ className = '', paused = false }) {
       b.scale(dpr, dpr)
       b.lineCap = 'round'
       b.lineJoin = 'round'
-      b.strokeStyle = 'rgba(20,20,20,0.16)'
+      b.strokeStyle = 'rgba(20,20,20,0.13)'
       b.lineWidth = 1.6
       traces.forEach((t) => {
         b.beginPath()

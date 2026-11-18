@@ -81,7 +81,7 @@ export default function ProjectsSection() {
   const shown = projects.filter((p) => filter === 'all' || p.category === filter)
 
   return (
-    <section id="projects" className="bg-paper py-24 sm:py-32">
+    <section id="projects" className="bg-paper pb-24 pt-6 sm:pb-32 sm:pt-10">
       <div className="wrap">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>

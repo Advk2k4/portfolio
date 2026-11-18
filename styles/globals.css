@@ -199,6 +199,87 @@ button {
 .packet-b { animation-name: packet-b; animation-duration: 2.6s; }
 .group:hover .packet { animation-play-state: running; }
 
+/* Custom cursor: one circle replaces the system cursor (fine pointers only) */
+.custom-cursor,
+.custom-cursor * {
+  cursor: none !important;
+}
+.cursor-dot {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.cursor-dot[data-visible='true'] {
+  opacity: 1;
+}
+.cursor-dot span {
+  position: absolute;
+  left: -9px;
+  top: -9px;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  border: 2px solid var(--ink);
+  background: rgba(20, 20, 20, 0.08);
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1), background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+.cursor-dot[data-dark='true'] span {
+  border-color: var(--paper);
+  background: rgba(245, 241, 232, 0.12);
+}
+.cursor-dot[data-hover='true'] span {
+  transform: scale(1.9);
+  background: rgba(213, 245, 66, 0.55);
+}
+.cursor-dot[data-down='true'] span {
+  transform: scale(0.75);
+}
+.cursor-dot[data-hover='true'][data-down='true'] span {
+  transform: scale(1.5);
+}
+
+/* Silky section blends: a tall gradient between two section colours */
+.blend {
+  height: clamp(5rem, 14vw, 11rem);
+  background: linear-gradient(to bottom, var(--from), var(--to));
+  background: linear-gradient(in oklab to bottom, var(--from), var(--to));
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+
+/* Project visuals */
+@keyframes walk-a {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(150px, 0); }
+  100% { transform: translate(150px, 70px); }
+}
+@keyframes walk-b {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(140px, 0); }
+  100% { transform: translate(140px, 70px); }
+}
+.walker { animation: 3s ease-in-out infinite alternate paused; }
+.walker-a { animation-name: walk-a; }
+.walker-b { animation-name: walk-b; animation-delay: -0.4s; }
+.group:hover .walker { animation-play-state: running; }
+
+@keyframes ecg-draw {
+  from { stroke-dashoffset: 900; }
+  to { stroke-dashoffset: 0; }
+}
+.ecg-line { stroke-dasharray: 900; stroke-dashoffset: 0; }
+.group:hover .ecg-line { animation: ecg-draw 1.6s linear infinite; }
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  30% { transform: scale(1.25); }
+}
+.group:hover .beat { animation: beat 0.8s ease-in-out infinite; }
+
 /* Sticker ring spins only while hovered */
 .ring-spin {
   transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);

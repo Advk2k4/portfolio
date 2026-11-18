@@ -56,9 +56,9 @@ const TIMELINE = [
 
 export default function EchoSafeSection() {
   return (
-    <section id="echosafe" className="on-dark relative overflow-hidden bg-night py-24 text-paper sm:py-32">
-      <div className="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full bg-signal/20 blur-[120px]" aria-hidden="true" />
-      <div className="pointer-events-none absolute -bottom-40 -left-40 h-[420px] w-[420px] rounded-full bg-cobalt/25 blur-[120px]" aria-hidden="true" />
+    <section id="echosafe" className="on-dark relative overflow-hidden bg-night pb-24 pt-6 text-paper sm:pb-32 sm:pt-10">
+      <div className="pointer-events-none absolute -right-40 top-24 h-[520px] w-[520px] rounded-full bg-signal/20 blur-[120px]" aria-hidden="true" />
+      <div className="pointer-events-none absolute bottom-24 -left-40 h-[420px] w-[420px] rounded-full bg-cobalt/25 blur-[120px]" aria-hidden="true" />
 
       <div className="wrap relative">
         <div className="flex flex-wrap items-center gap-4">
