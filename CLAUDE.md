@@ -14,7 +14,7 @@ No test runner or linter is configured.
 
 ## Architecture
 
-**Next.js 15 Pages Router**, plain JavaScript, Tailwind CSS 3. One page (`pages/index.js`) renders every section in order with `id` anchors, in this order: `#home`, `#about`, `#echosafe`, `#projects`, `#experience`, `#skills`, `#contact`. Between differently coloured sections, `pages/index.js` renders a `Blend` (a tall `.blend` gradient, oklab) so sections flow into each other; keep one between any two sections with different backgrounds. Project cards have their own anchors (`#p-<id>`), used by the skills explorer.
+**Next.js 15 Pages Router**, plain JavaScript, Tailwind CSS 3. One page (`pages/index.js`) renders every section in order with `id` anchors, in this order: `#home`, `#about`, `#echosafe`, `#projects`, `#experience`, `#skills`, `#contact`. Sections meet with sharp colour cuts (Aadvik tried gradient blends and prefers the hard edges). Project cards have their own anchors (`#p-<id>`), used by the skills explorer.
 
 No runtime dependencies besides `next`, `react`, `react-dom` and `@vercel/speed-insights`. All motion is CSS or plain canvas/SVG. Keep it that way unless Aadvik approves a new package.
 

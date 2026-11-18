@@ -8,7 +8,7 @@ const OTHER = [
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="bg-signal pb-24 pt-6 sm:pb-32 sm:pt-10">
+    <section id="contact" className="bg-signal py-24 sm:py-32">
       <div className="wrap">
         <p className="kicker text-ink/70">Contact</p>
         <h2 className="mt-3 font-display text-[clamp(3rem,9vw,8rem)] font-extrabold leading-[0.88] tracking-[-0.04em]">

@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import EchoSafeDemo from './EchoSafeDemo'
 
 const FACTS = [
@@ -56,17 +55,12 @@ const TIMELINE = [
 
 export default function EchoSafeSection() {
   return (
-    <section id="echosafe" className="on-dark relative overflow-hidden bg-night pb-24 pt-6 text-paper sm:pb-32 sm:pt-10">
+    <section id="echosafe" className="on-dark relative overflow-hidden bg-night py-24 text-paper sm:py-32">
       <div className="pointer-events-none absolute -right-40 top-24 h-[520px] w-[520px] rounded-full bg-signal/20 blur-[120px]" aria-hidden="true" />
       <div className="pointer-events-none absolute bottom-24 -left-40 h-[420px] w-[420px] rounded-full bg-cobalt/25 blur-[120px]" aria-hidden="true" />
 
       <div className="wrap relative">
-        <div className="flex flex-wrap items-center gap-4">
-          <div className="relative h-14 w-14 overflow-hidden rounded-2xl bg-paper">
-            <Image src="/echosafe_logo.png" alt="EchoSafe logo" fill sizes="56px" className="object-contain p-1.5" />
-          </div>
-          <p className="kicker text-lime">Featured project · Senior design capstone · Team lead</p>
-        </div>
+        <p className="kicker text-lime">Featured project · Senior design capstone · Team lead</p>
 
         <h2 translate="no" className="mt-6 font-display text-[clamp(3rem,9vw,7.5rem)] font-extrabold leading-[0.9] tracking-[-0.04em]">
           EchoSafe

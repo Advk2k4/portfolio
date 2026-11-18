@@ -35,7 +35,7 @@ export default function Hero() {
       {/* Soft fade at the bottom so the hero melts into the next section */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent to-paper" />
 
-      <div className="wrap grid flex-1 items-center gap-12 pb-16 pt-6 md:grid-cols-[1.4fr_1fr] md:gap-8">
+      <div className="wrap grid flex-1 items-center gap-12 pb-16 pt-6 md:grid-cols-[1.25fr_1fr] md:gap-10">
         <div>
           <p className="enter chip mb-7 border-ink bg-paper" style={{ '--d': '0ms' }}>
             <span className="mr-2 inline-block h-2 w-2 rounded-full bg-[#2BB24C]" aria-hidden="true" />
@@ -82,7 +82,7 @@ export default function Hero() {
           </ul>
         </div>
 
-        <div className="enter relative mx-auto w-[min(72vw,320px)]" style={{ '--d': '200ms' }}>
+        <div className="enter relative mx-auto w-[min(82vw,360px)] md:w-full md:max-w-[440px]" style={{ '--d': '200ms' }}>
           <div className="sticker relative aspect-square">
             <svg viewBox="0 0 200 200" className="ring-spin absolute inset-0 h-full w-full" aria-hidden="true">
               <defs>
@@ -99,7 +99,7 @@ export default function Hero() {
                 alt="Portrait of Aadvik Mishra"
                 fill
                 priority
-                sizes="(max-width: 768px) 60vw, 260px"
+                sizes="(max-width: 768px) 66vw, 340px"
                 className="object-cover"
               />
             </div>

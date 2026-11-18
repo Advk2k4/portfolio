@@ -15,7 +15,7 @@ const FACTS = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="bg-paper pb-8 pt-10 sm:pt-16">
+    <section id="about" className="bg-paper pb-24 pt-10 sm:pb-32 sm:pt-16">
       <div className="wrap">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-20">
           <div>

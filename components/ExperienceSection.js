@@ -50,7 +50,7 @@ const experiences = [
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="on-dark bg-cobalt pb-24 pt-6 text-white sm:pb-32 sm:pt-10">
+    <section id="experience" className="on-dark bg-cobalt py-24 text-white sm:py-32">
       <div className="wrap">
         <p className="kicker text-white/70">Experience</p>
         <h2 className="mt-3 font-display text-[clamp(2.5rem,6vw,4.75rem)] font-extrabold leading-[0.95] tracking-[-0.03em]">

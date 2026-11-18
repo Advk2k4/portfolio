@@ -243,15 +243,6 @@ button {
   transform: scale(1.5);
 }
 
-/* Silky section blends: a tall gradient between two section colours */
-.blend {
-  height: clamp(5rem, 14vw, 11rem);
-  background: linear-gradient(to bottom, var(--from), var(--to));
-  background: linear-gradient(in oklab to bottom, var(--from), var(--to));
-  margin-top: -1px;
-  margin-bottom: -1px;
-}
-
 /* Project visuals */
 @keyframes walk-a {
   0% { transform: translate(0, 0); }
