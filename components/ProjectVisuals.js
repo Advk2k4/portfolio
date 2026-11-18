@@ -73,4 +73,62 @@ export function Eeg() {
   )
 }
 
-export const VISUALS = { spectrum: Spectrum, mesh: Mesh, eeg: Eeg }
+export function Layout() {
+  // Stylised standard-cell layout: diffusion, poly gates, metal straps and contacts.
+  const cells = [0, 1, 2, 3]
+  return (
+    <div className="relative h-full w-full bg-[#F1EEE6] p-5">
+      <svg viewBox="0 0 480 200" className="h-full w-full" aria-hidden="true">
+        <rect x="10" y="14" width="460" height="16" fill="#1F45F5" opacity="0.85" />
+        <rect x="10" y="170" width="460" height="16" fill="#1F45F5" opacity="0.85" />
+        {cells.map((c) => (
+          <g key={c} transform={`translate(${20 + c * 115} 0)`}>
+            <rect x="0" y="44" width="95" height="38" fill="#2BB24C" opacity="0.55" />
+            <rect x="0" y="118" width="95" height="38" fill="#D5F542" opacity="0.9" />
+            {[20, 45, 70].map((x) => (
+              <rect key={x} x={x} y="36" width="7" height="128" fill="#FF5B23" opacity="0.85" />
+            ))}
+            {[8, 33, 58, 83].map((x) => (
+              <g key={x}>
+                <rect x={x} y="56" width="6" height="6" fill="#141414" />
+                <rect x={x} y="132" width="6" height="6" fill="#141414" />
+              </g>
+            ))}
+            <rect x="6" y="94" width="85" height="10" fill="#1F45F5" opacity="0.55" className="transition-opacity duration-300 group-hover:opacity-100" />
+          </g>
+        ))}
+      </svg>
+      <p className="absolute right-5 top-4 rounded-full bg-ink px-2 py-0.5 font-mono text-[11px] text-lime opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        DRC ✓ LVS ✓
+      </p>
+    </div>
+  )
+}
+
+export function Code() {
+  return (
+    <div className="relative flex h-full w-full items-center justify-center bg-ink p-5 font-mono text-[12px] leading-relaxed sm:text-[13px]">
+      <div className="w-full max-w-[22rem] rounded-xl border border-white/15 bg-white/[0.04] p-4">
+        <p className="text-white/40">// Unit 4 · Pointers</p>
+        <p>
+          <span className="text-signal">int</span> <span className="text-paper">x = </span>
+          <span className="text-lime">42</span>
+          <span className="text-paper">;</span>
+        </p>
+        <p>
+          <span className="text-signal">int</span> <span className="text-paper">*p = &amp;x;</span>
+        </p>
+        <p className="text-paper">
+          printf(<span className="text-lime">"%d"</span>, *p);
+          <span className="ml-0.5 inline-block h-3.5 w-1.5 translate-y-0.5 bg-lime opacity-0 group-hover:opacity-100" />
+        </p>
+        <div className="mt-3 flex items-center justify-between border-t border-white/10 pt-3 text-[11px]">
+          <span className="text-white/60">53 lessons · 11 units</span>
+          <span className="rounded-full bg-signal px-2 py-0.5 text-ink transition-transform duration-300 group-hover:scale-110">🔥 streak</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export const VISUALS = { spectrum: Spectrum, mesh: Mesh, eeg: Eeg, layout: Layout, code: Code }

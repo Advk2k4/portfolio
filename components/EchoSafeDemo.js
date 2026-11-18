@@ -224,6 +224,7 @@ export default function EchoSafeDemo() {
           viewBox="0 0 400 400"
           className="mx-auto block w-full max-w-[440px] cursor-crosshair touch-manipulation select-none"
           onClick={onSvgClick}
+          data-cursor="Try"
           role="img"
           aria-label="Top-down view of a head wearing EchoSafe, with four microphones and motors. Click around the head to send a sound from that direction."
         >

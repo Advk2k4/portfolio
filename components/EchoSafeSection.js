@@ -4,8 +4,8 @@ import EchoSafeDemo from './EchoSafeDemo'
 const FACTS = [
   { value: '4', label: 'MEMS mics, one per quadrant' },
   { value: '5', label: 'sound classes, on-device' },
-  { value: '97.5%', label: 'test accuracy' },
-  { value: '64 ms', label: 'per inference on the chip' },
+  { value: '91%', label: 'classification accuracy' },
+  { value: '5', label: 'custom KiCad PCBs' },
 ]
 
 const PIPELINE = [
@@ -22,7 +22,7 @@ const PIPELINE = [
   {
     step: '03',
     title: 'Decide',
-    body: 'A small neural net (403 → 128 → 64 → 5) names it: horn, bell, siren, gunshot or background noise. Under 65% confidence, it stays quiet.',
+    body: 'A small neural network, running as hand-written C on the ESP32-S3, names it: horn, bell, siren, gunshot or background noise. If it isn’t confident, it stays quiet.',
   },
   {
     step: '04',
@@ -35,12 +35,12 @@ const TIMELINE = [
   {
     when: 'Feb 2026',
     title: 'Dataset and model',
-    body: 'Recorded 1,059 clips through the device’s own mic and ESP32-S3, so training and inference hear the same audio. The model reached 97.5% test accuracy.',
+    body: 'Recorded a 1,059-clip dataset through the device’s own mic and ESP32-S3, so training and inference hear the same audio.',
   },
   {
     when: 'Spring 2026',
     title: 'Custom PCB, built and tested',
-    body: 'Our KiCad board was fabricated, and the team brought it up and stress-tested it as the capstone build.',
+    body: 'Our custom board was fabricated, brought up and stress-tested. At the capstone demo, the direction logic drove the haptic alerts on real hardware.',
   },
   {
     when: 'Fall 2026',
@@ -94,7 +94,15 @@ export default function EchoSafeSection() {
                 I led a senior design team at UMass Amherst. I owned the ML pipeline end to end, from
                 recording the dataset on the device to running the model on the chip, plus every
                 software-hardware integration: mics over I2S, haptic drivers over I2C, and the speaker
-                alerts.
+                alerts. I also designed the directional alert system, and I’m the only member of the
+                team still developing the device.
+              </p>
+            </div>
+            <div>
+              <h3 className="kicker text-white/50">Checked with real users</h3>
+              <p className="mt-3 text-lg leading-relaxed text-white/85">
+                Before building, I asked the hard-of-hearing community on r/hardofhearing whether this would
+                help. The post drew 4,000+ views and about 30 comments.
               </p>
             </div>
             <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/15 bg-white/15">

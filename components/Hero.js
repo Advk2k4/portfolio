@@ -3,8 +3,8 @@ import Image from 'next/image'
 import SignalCanvas from './SignalCanvas'
 
 const STATS = [
-  { value: '97.5%', label: 'test accuracy of the sound classifier running on EchoSafe' },
-  { value: '64 ms', label: 'for the ESP32-S3 to classify one sound, on the chip itself' },
+  { value: '91%', label: 'accuracy of the sound classifier running on EchoSafe' },
+  { value: '5', label: 'custom KiCad PCBs designed for EchoSafe' },
   { value: '2', label: 'hackathon wins, at HackUMass X and HackHer413' },
   { value: '80+', label: 'students mentored as an ECE course assistant' },
 ]
@@ -27,7 +27,11 @@ function BouncyName({ text }) {
 export default function Hero() {
   const [paused, setPaused] = useState(false)
   return (
-    <section id="home" className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-paper pt-20">
+    <section
+      id="home"
+      data-cursor="Click"
+      className="relative isolate mx-2 mt-2 flex min-h-[calc(100svh-0.5rem)] flex-col overflow-hidden rounded-[1.75rem] border-2 border-ink bg-paper pt-20 sm:mx-3 sm:mt-3 sm:min-h-[calc(100svh-0.75rem)] sm:rounded-[2.25rem]"
+    >
       <SignalCanvas paused={paused} className="absolute inset-0 -z-10 h-full w-full [mask-image:linear-gradient(100deg,rgba(0,0,0,0.35)_10%,#000_60%)]" />
 
       <div className="wrap grid flex-1 items-center gap-10 py-8 md:grid-cols-[1.45fr_1fr] md:gap-8">
@@ -110,7 +114,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="border-t-2 border-ink bg-paper/80 backdrop-blur-sm">
+      <div className="border-t-2 border-ink bg-paper/80 backdrop-blur-sm" data-cursor="">
         <dl className="wrap grid grid-cols-2 gap-y-5 py-5 lg:grid-cols-4">
           {STATS.map((s) => (
             <div key={s.value} className="pr-4">

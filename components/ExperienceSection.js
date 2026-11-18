@@ -1,23 +1,31 @@
 const experiences = [
   {
+    title: 'Volunteer AI Software Developer',
+    company: 'MatchingDonors (remote)',
+    period: 'Nov 2026 - Present',
+    current: true,
+    bullets: [
+      'Building an AI-assisted outreach tool in Python on existing LLM APIs: it ranks patient and donor registrations by urgency and drafts outreach for a human to review before anything is sent.',
+      'Designing the review queue and recurring draft automation so staff keep final approval on every message.',
+    ],
+  },
+  {
     title: 'Embedded Systems & Controls Engineer',
     company: 'UMass Mechatronics Team, ASME Student Design Competition',
     period: 'Jan 2025 - May 2026',
     bullets: [
-      'Wrote C/C++ firmware for real-time motor control and sensor fusion.',
-      'Integrated sensors over I2C, SPI and UART.',
+      'Wrote C/C++ firmware for real-time motor control and sensor fusion on a custom autonomous robot.',
+      'Integrated ultrasonic, vision and contact sensors over I2C, SPI and UART, and tuned PID loops for stability and response.',
       'Diagnosed hardware-software faults during board bring-up and field testing with the mechanical and electrical teams.',
-      'Validated timing and signal integrity with oscilloscopes and logic analyzers.',
     ],
   },
   {
     title: 'Software Engineering Intern',
-    company: 'WealthTechAI',
+    company: 'WealthTech',
     period: 'Jun 2025 - Aug 2025',
     bullets: [
-      'Ran system-level validation and traced failures to their root cause across process execution and system state.',
-      'Built Python automation for regression and functional testing.',
-      'Documented system behavior and edge cases so integrations stayed reliable.',
+      'Built Python automation for regression and functional testing, and ran system-level validation with structured root-cause analysis on failures.',
+      'Wrote SQL queries and documented system behavior and edge cases, working in Git and Agile sprints with JIRA.',
     ],
   },
   {
@@ -34,8 +42,7 @@ const experiences = [
     company: 'Elaine Marieb Center for Nursing and Engineering Innovation',
     period: 'Dec 2023 - Aug 2024',
     bullets: [
-      'Assembled and debugged PCB-based embedded systems for biomedical sensing devices.',
-      'Wrote C and Python test utilities to check system behavior and data integrity.',
+      'Supported a tetra-polar bioimpedance spectroscopy project with Python scripting, testing and data analysis.',
       'Automated validation workflows into repeatable test procedures that other teams could trace.',
     ],
   },
@@ -53,7 +60,15 @@ export default function ExperienceSection() {
         <ol className="mt-14 divide-y-2 divide-white/20 border-y-2 border-white/20">
           {experiences.map((exp) => (
             <li key={exp.title} className="group grid gap-4 py-8 md:grid-cols-[14rem_1fr] md:gap-10">
-              <p className="font-mono text-sm text-lime">{exp.period}</p>
+              <div>
+                <p className="font-mono text-sm text-lime">{exp.period}</p>
+                {exp.current && (
+                  <span className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-lime px-2.5 py-0.5 font-mono text-[11px] font-semibold text-ink">
+                    <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[#2BB24C]" />
+                    Now
+                  </span>
+                )}
+              </div>
               <div>
                 <h3 className="font-display text-2xl font-bold sm:text-3xl">{exp.title}</h3>
                 <p className="mt-1 text-white/75">{exp.company}</p>

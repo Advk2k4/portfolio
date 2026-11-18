@@ -1,8 +1,8 @@
 const FACTS = [
   { label: 'Degree', value: 'B.S. Computer Engineering, UMass Amherst, May 2026' },
-  { label: 'GPA', value: '3.6' },
-  { label: 'Honors', value: 'Chancellor’s Award, Dean’s List' },
+  { label: 'Honors', value: 'Chancellor’s Award; Dean’s List, Fall 2024 to Fall 2025' },
   { label: 'Coursework', value: 'VLSI Design, Embedded Systems, Digital Systems, Computer Architecture, Signals & Systems' },
+  { label: 'Now', value: 'Volunteer AI software developer at MatchingDonors' },
   { label: 'Looking for', value: 'Full-time roles in embedded, firmware, hardware, VLSI or software engineering' },
 ]
 
@@ -27,7 +27,8 @@ export default function AboutSection() {
               web apps at hackathons, two of which won awards.
             </p>
             <p>
-              Right now I’m looking for my first full-time role. Embedded and hardware are home base, but I’m
+              Right now I’m volunteering as an AI software developer at MatchingDonors, building an outreach
+              tool that keeps a human in charge of every message, and looking for my first full-time role. Embedded and hardware are home base, but I’m
               just as happy writing software, so if you’re building something interesting, I’d like to hear
               about it.
             </p>

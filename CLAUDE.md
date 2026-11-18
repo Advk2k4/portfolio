@@ -28,14 +28,15 @@ No runtime dependencies besides `next`, `react`, `react-dom` and `@vercel/speed-
 - `Navigation`: fixed pill nav, IntersectionObserver active state, full-screen mobile menu.
 - `Hero` + `SignalCanvas`: name, intro, CTAs, stats strip; canvas of circuit traces with pulses that react to the pointer (pausable, pauses off-screen).
 - `EchoSafeSection` + `EchoSafeDemo`: the featured capstone. The demo is an interactive illustration (pick a sound, click around the head, mics light up in arrival order, nearest motor buzzes; optional Web Audio synth).
-- `ProjectsSection` + `ProjectVisuals`: filterable card grid. `ProjectVisuals` draws visuals for projects without a photo (`spectrum`, `mesh`, `eeg`).
+- `ProjectsSection` + `ProjectVisuals`: filterable card grid. `ProjectVisuals` draws visuals for projects without a photo (`spectrum`, `mesh`, `eeg`, `layout`, `code`).
+- `CursorRing`: mouse-only trailing ring that shows a label from the nearest `data-cursor` attribute (or "Open" on links). Off under reduced motion.
 - `ExperienceSection`, `SkillsSection` (skill explorer: click a skill to see where it was used), `AboutSection`, `ContactSection` (includes the footer).
 
 `next.config.js` exposes `NEXT_PUBLIC_ON_VERCEL` so Speed Insights only loads on Vercel builds.
 
 ## Content Updates
 
-- **Projects**: edit the `projects` array in `lib/projects.js`. Fields: `id`, `title`, `meta`, `category` (`hardware`|`vlsi`|`ml`|`software`), `visual` (image path in `/public` or `spectrum`|`mesh`|`eeg`), `blurb`, `tags`, `links`, optional `award`, `contain`.
+- **Projects**: edit the `projects` array in `lib/projects.js`. Fields: `id`, `title`, `meta`, `category` (`hardware`|`vlsi`|`ml`|`software`), `visual` (image path in `/public` or `spectrum`|`mesh`|`eeg`|`layout`|`code`), `blurb`, `tags`, `links`, optional `award`, `contain`.
 - **Skills**: edit `skillGroups` in `lib/skills.js`. `used` lists project ids or `role:*` keys as evidence.
 - **EchoSafe**: `FACTS`, `PIPELINE`, `TIMELINE` at the top of `components/EchoSafeSection.js`.
 - **Experience**: `experiences` array in `components/ExperienceSection.js`.
@@ -47,4 +48,5 @@ No runtime dependencies besides `next`, `react`, `react-dom` and `@vercel/speed-
 - Aadvik graduated in May 2026; never call him a student.
 - Do not claim Docker, Linux, TCL, Perl, Verilog or Assembly.
 - EchoSafe is a group senior design capstone (Aadvik: team lead, ML pipeline, all software-hardware integration). It is ear-worn, not a wrist device.
+- EchoSafe accuracy on the site is 91% (Aadvik's call). Keep it consistent in `Hero.js` and `EchoSafeSection.js`.
 - No em dashes in site text.

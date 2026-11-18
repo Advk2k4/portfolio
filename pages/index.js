@@ -7,6 +7,7 @@ import ExperienceSection from '../components/ExperienceSection'
 import SkillsSection from '../components/SkillsSection'
 import AboutSection from '../components/AboutSection'
 import ContactSection from '../components/ContactSection'
+import CursorRing from '../components/CursorRing'
 
 const TITLE = 'Aadvik Mishra · Computer Engineer'
 const DESCRIPTION =
@@ -35,6 +36,7 @@ export default function Home() {
       >
         Skip to content
       </a>
+      <CursorRing />
       <Navigation />
       <main id="main">
         <Hero />
