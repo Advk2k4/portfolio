@@ -1,0 +1,39 @@
+# Aadvik Mishra
+
+> Aadvik Mishra is a computer engineer who graduated from the University of Massachusetts Amherst in May 2026 with a B.S. in Computer Engineering. He works across embedded firmware, custom PCB design, VLSI layout and software, including on-device machine learning on the ESP32-S3. He is open to full-time roles in embedded, firmware, hardware, VLSI or software engineering, and currently volunteers as an AI software developer at MatchingDonors.
+
+- Website: https://aadvik.vercel.app
+- Email: aadvikmishra7@gmail.com
+- LinkedIn: https://www.linkedin.com/in/aadvikm
+- GitHub: https://github.com/Advk2k4
+- Résumé (PDF): https://aadvik.vercel.app/AadvikMishra_Resume.pdf
+
+## Featured project: EchoSafe
+
+- [EchoSafe](https://github.com/Advk2k4/echosafe): an ear-worn wearable that tells deaf and hard-of-hearing people what a sound was and which way it came from. A group senior design capstone at UMass Amherst (Spring 2026); Aadvik was team lead and owned the ML pipeline end to end plus every software-hardware integration, and designed the directional alert system. Four MEMS microphones feed an ESP32-S3 that classifies horns, bells, sirens, gunshots and background noise on the device (91% accuracy), uses arrival-time differences between the mics to find the direction, and buzzes a haptic motor on that side. Five custom KiCad PCBs were designed; the capstone board was fabricated, brought up and stress-tested. The idea was checked with the hard-of-hearing community on r/hardofhearing (4,000+ views, about 30 comments). Aadvik is the only team member still developing it.
+
+## Other projects
+
+- [Farewise](https://advk2k4.github.io/farewise/): compares walking, cycling, transit, taxis and driving anywhere in the world with a time and estimated cost, plans multi-stop days and tracks travel spending. React, TypeScript, Vite, Leaflet, OpenStreetMap. Code: https://github.com/Advk2k4/farewise
+- [MicroVibe](https://github.com/Advk2k4/microvibe): a predictive-maintenance fault lab built from a starter kit for Hackachusetts 2026 (solo). An ESP32-S3 streams 1 kHz vibration data; a Python dashboard learns a healthy baseline and flags brake drag and rotor imbalance with an FFT speed line.
+- 3×3 mesh network-on-chip (VLSI coursework, Dec 2025): RTL through synthesis in Synopsys Design Compiler and place-and-route in Cadence Innovus, with mixed-level simulation to check deadlock-free routing.
+- Custom VLSI accumulator (ECE 558, Nov 2025): transistor-level 1-bit and 4-bit ripple-carry accumulator layouts in 45 nm CMOS in Cadence Virtuoso, checked with DRC and LVS.
+- [TinyTemp](https://github.com/Advk2k4/tiny-temp): a battery-powered thermometer on a custom KiCad PCB with an ATtiny85, TMP36 sensor and SSD1306 OLED.
+- [Fooling a brain-computer interface](https://github.com/Advk2k4/foolingAI-547) (ECE 547, team lead, Spring 2026): changing two of 1,001 EEG samples pushed an FBCSP + SVM classifier to 21.6% misclassification while staying above the 20 dB imperceptibility threshold.
+- [Digit recognition on an FPGA](https://github.com/epeter11/ECE332) (team project, Oct 2024): neural-network inference on a DE1-SoC with OpenCL and an ARM Cortex-A9.
+- [Bias detection in automated hiring](https://github.com/Advk2k4/BiasDetectionModel): LLM-based fairness audits on 480 controlled résumés using the OpenAI API, TF-IDF and statistical tests.
+- [SafeStride](https://github.com/sheldor1510/safestride): a campus walking-buddy web app; Best UX / Product Design Hack at HackHer413 (team).
+- [UPlay!](https://github.com/sheldor1510/uplay): a location-based web platform; Best Beginner Hack at HackUMass X (team).
+- [Real-time sign language recognition](https://github.com/Advk2k4/asl-app), [facial and text sentiment analyzer](https://github.com/Advk2k4/sentiment-analysis), [heart rate monitor](https://github.com/Advk2k4/heart-rate-monitor), [Medway](https://github.com/Advk2k4/medway) (clinic queue tracker, in progress), [FoodScout](https://github.com/Advk2k4/FoodRecs), and an interactive C-learning app (53 lessons across 11 units).
+
+## Experience
+
+- Volunteer AI Software Developer, MatchingDonors (remote), Nov 2026 to present: an AI-assisted outreach tool in Python on LLM APIs, with a human approving every message.
+- Embedded Systems & Controls Engineer, UMass Mechatronics Team (ASME Student Design Competition), Jan 2025 to May 2026: C/C++ firmware for real-time motor control and sensor fusion, sensor integration over I2C, SPI and UART, PID tuning.
+- Software Engineering Intern, WealthTech, Jun 2025 to Aug 2025: Python test automation, system-level validation, SQL, Git, Agile and JIRA.
+- Undergraduate Course Assistant, UMass Amherst ECE Department, Jan 2024 to Dec 2024: mentored 80+ students in digital logic and FPGA simulation.
+- Research Assistant, Elaine Marieb Center for Nursing and Engineering Innovation, Dec 2023 to Aug 2024: Python scripting, testing and data analysis for a bioimpedance spectroscopy project.
+
+## Skills
+
+Python, Java, C, C++, JavaScript, TypeScript, MATLAB, SQL, Bash; KiCad, schematic capture, PCB layout, board bring-up; ESP32-S3, ATtiny85, ARM Cortex-A9, DE1-SoC FPGA, Arduino, I2C, SPI, UART, I2S, PWM, ADC; Cadence Innovus and Virtuoso, Synopsys Design Compiler, DRC/LVS, ModelSim, Quartus Prime; TensorFlow/Keras, scikit-learn, OpenCV, MediaPipe, LLM APIs; React, Firebase, Django, Streamlit, Node.js, Git, JIRA.

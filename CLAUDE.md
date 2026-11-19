@@ -32,6 +32,8 @@ No runtime dependencies besides `next`, `react`, `react-dom` and `@vercel/speed-
 - `Cursor`: replaces the system cursor with one circle (never both) on fine pointers; grows over interactive elements, light outline inside `.on-dark` sections. Off under reduced motion.
 - `AboutSection` (intro, facts, stats strip; sits right after the hero), `ExperienceSection`, `SkillsSection` (skill explorer: click a skill to see where it was used), `ContactSection` (email shown once). The footer lives in `pages/index.js`.
 
+**SEO/GEO**: meta, Open Graph/Twitter tags and schema.org JSON-LD (`STRUCTURED_DATA`: Person, WebSite, featured projects) live in `pages/index.js`. `public/robots.txt`, `public/sitemap.xml` (bump `lastmod` on real content changes), `public/llms.txt` (plain-language summary for AI tools; keep it in sync with site content) and `public/og.png` (1200×630 link preview).
+
 `next.config.js` exposes `NEXT_PUBLIC_ON_VERCEL` so Speed Insights only loads on Vercel builds.
 
 ## Content Updates
