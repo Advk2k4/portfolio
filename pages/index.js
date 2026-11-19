@@ -101,6 +101,7 @@ export default function Home() {
         <meta property="og:title" content={TITLE} />
         <meta property="og:description" content={DESCRIPTION} />
         <meta name="author" content="Aadvik Mishra" />
+        <meta name="google-site-verification" content="g_zyaflGqFdr7gtVU5bmn6QYX1cGERb56uJINrV21i4" />
         <meta property="og:site_name" content="Aadvik Mishra" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:image" content={OG_IMAGE} />
