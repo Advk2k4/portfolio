@@ -13,6 +13,80 @@ const TITLE = 'Aadvik Mishra · Computer Engineer'
 const DESCRIPTION =
   'Computer engineer (UMass Amherst ’26) who designs PCBs, writes firmware and trains on-device ML. Creator of EchoSafe, an ear-worn sound-alert wearable for deaf and hard-of-hearing users.'
 const URL = 'https://aadvik.vercel.app'
+const OG_IMAGE = `${URL}/og.png`
+
+// Structured data (schema.org) so search engines and AI tools can tell who this site is about.
+const STRUCTURED_DATA = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${URL}/#person`,
+      name: 'Aadvik Mishra',
+      url: URL,
+      image: `${URL}/Aadvik.jpeg`,
+      email: 'mailto:aadvikmishra7@gmail.com',
+      jobTitle: 'Computer Engineer',
+      description:
+        'Computer engineer (UMass Amherst, B.S. Computer Engineering, May 2026) working across embedded firmware, custom PCB design, VLSI and software, including on-device ML on the ESP32-S3.',
+      alumniOf: {
+        '@type': 'CollegeOrUniversity',
+        name: 'University of Massachusetts Amherst',
+        url: 'https://www.umass.edu',
+      },
+      knowsAbout: [
+        'Embedded systems',
+        'Firmware',
+        'PCB design',
+        'KiCad',
+        'ESP32-S3',
+        'VLSI',
+        'Cadence Virtuoso',
+        'Machine learning',
+        'Python',
+        'Java',
+        'C',
+        'C++',
+      ],
+      sameAs: ['https://www.linkedin.com/in/aadvikm', 'https://github.com/Advk2k4'],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${URL}/#website`,
+      url: URL,
+      name: 'Aadvik Mishra',
+      about: { '@id': `${URL}/#person` },
+      author: { '@id': `${URL}/#person` },
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'EchoSafe',
+      url: 'https://github.com/Advk2k4/echosafe',
+      description:
+        'An ear-worn wearable that tells deaf and hard-of-hearing people what a sound was and which way it came from, using on-device sound classification on an ESP32-S3 and directional haptic alerts. Group senior design capstone; Aadvik Mishra was team lead.',
+      creator: { '@id': `${URL}/#person` },
+    },
+    {
+      '@type': 'SoftwareApplication',
+      name: 'Farewise',
+      url: 'https://advk2k4.github.io/farewise/',
+      applicationCategory: 'TravelApplication',
+      operatingSystem: 'Web',
+      description:
+        'Compares walking, cycling, transit, taxis and driving anywhere in the world with a time and estimated cost, plans multi-stop days and tracks travel spending.',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      creator: { '@id': `${URL}/#person` },
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'MicroVibe',
+      url: 'https://github.com/Advk2k4/microvibe',
+      description:
+        'A predictive-maintenance fault lab built from a starter kit: an ESP32-S3 streams vibration data and a Python dashboard flags brake drag and rotor imbalance. Hackachusetts 2026, solo build.',
+      creator: { '@id': `${URL}/#person` },
+    },
+  ],
+}
 
 export default function Home() {
   return (
@@ -26,8 +100,22 @@ export default function Home() {
         <meta property="og:url" content={URL} />
         <meta property="og:title" content={TITLE} />
         <meta property="og:description" content={DESCRIPTION} />
-        <meta property="og:image" content={`${URL}/Aadvik.jpeg`} />
-        <meta name="twitter:card" content="summary" />
+        <meta name="author" content="Aadvik Mishra" />
+        <meta property="og:site_name" content="Aadvik Mishra" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Aadvik Mishra, computer engineer: hardware, firmware and software" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={TITLE} />
+        <meta name="twitter:description" content={DESCRIPTION} />
+        <meta name="twitter:image" content={OG_IMAGE} />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA) }}
+        />
       </Head>
 
       <a
